@@ -1,10 +1,23 @@
 import { useEffect, useState } from "react";
 import Person from "../../Api/api";
+import Option from "../../utils/options";
 import Button from "../Button";
 import Content from "../Content";
-import ListPerson from "../ListPerson";
+import EmptyPage from "../EmptyPage";
 import Loading from "../Loading";
-import { Input } from "./styles";
+import TablePerson from "../TablePerson";
+import {
+  Checkbox,
+  Column,
+  Container,
+  Input,
+  InputSelect,
+  InputSelectName,
+  Row,
+  Space,
+  Switch,
+  Toogle,
+} from "./styles";
 interface IDataProps {
   gender: string;
   name: {
@@ -53,32 +66,62 @@ const SearchPerson = () => {
         }
       });
     } catch (error) {
-      alert("Nao foi possivel buscar PEssoa");
+      alert("Nao foi possivel buscar Pessoa");
       setLoading(false);
     }
-  }, []);
-
-  const handleChangeInput = (event: any) => {
-    event.preventDefault();
-    if (event.target.value.length) {
-      setSearchPerson(event.target.value);
-    }
-  };
+  }, [searchPerson]);
 
   return (
     <Content>
-      <Input
-        type="text"
-        placeholder="search users.."
-        onChange={handleChangeInput}
-      />
-      <Button type="submit" placeholder="Search">
-        Search
-      </Button>
-      <Loading spinning={loading}>
-        <ListPerson person={filterPerson} />
-        {/* <TablePerson person={filterPerson} /> */}
-      </Loading>
+      <Container>
+        <Row>
+          <Column>
+            <Input
+              type="text"
+              placeholder="search users.."
+              onChange={e => setSearchPerson(e.target.value)}
+            />
+          </Column>
+          <Column>
+            <Button type="submit" placeholder="Search">
+              Search
+            </Button>
+          </Column>
+        </Row>
+        <Row>
+          <Space>
+            <Column>
+              <InputSelectName>
+                {Option.map(option => (
+                  <option value={option.value}>{option.label}</option>
+                ))}
+              </InputSelectName>
+            </Column>
+            <Column>
+              <InputSelect>
+                {Option.map(option => (
+                  <option value={option.value}>{option.label}</option>
+                ))}
+              </InputSelect>
+            </Column>
+            <Column>
+              <Toogle>
+                <Checkbox type="checkbox" />
+                <Switch />
+              </Toogle>
+            </Column>
+          </Space>
+        </Row>
+
+        {searchPerson.length === 0 ? (
+          <EmptyPage />
+        ) : (
+          <Loading spinning={loading}>
+            {/* <ListPerson person={filterPerson} /> */}
+            <TablePerson person={filterPerson} />
+          </Loading>
+        )}
+      </Container>
     </Content>
   );
 };
