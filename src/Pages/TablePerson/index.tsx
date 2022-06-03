@@ -1,10 +1,19 @@
 import React from "react";
 import { Container, Grid, ImageBoxRow, Name } from "./styles";
 
-const TablePerson = ({ person }: any) => {
+interface IItemsProps {
+  medium: string;
+  first: string;
+}
+
+type IProps = {
+  person: [];
+};
+
+const TablePerson = ({ person }: IProps) => {
   return (
     <Container>
-      {person.map((item: any) => (
+      {person.map((item: IItemsProps) => (
         <Grid>
           <ImageBoxRow src={item.medium} alt={item.first} />
           <Name>{item.first}</Name>

@@ -78,12 +78,9 @@ const ProfilePerson = () => {
       setLoading(false);
     }
   }, []);
-  console.log("person fora effect =>", person);
   return (
     <Container>
       <Loading spinning={loading}>
-        <h2>To aqui</h2>
-
         {person.map((one: IDataProps) => (
           <div key={one.id}>{one.name}</div>
         ))}
