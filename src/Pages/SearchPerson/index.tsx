@@ -36,8 +36,8 @@ const SearchPerson = () => {
   useEffect(() => {
     try {
       setLoading(true);
-      user.searchPersonList().then(res => {
-        if (res) {
+      user.searchPersonList(searchPerson).then(res => {
+        if (searchPerson.length) {
           const filterData = res.map((item: IDataProps) => ({
             id: item.id.value,
             medium: item.picture.medium,
@@ -58,20 +58,20 @@ const SearchPerson = () => {
     }
   }, []);
 
-  // const handleChangeInput = (event: any) => {
-  //   event.preventDefault();
-  //   if (event.target.value.length) {
-  //     setSearchPerson(event.target.value);
-  //   }
-  // };
+  const handleChangeInput = (event: any) => {
+    event.preventDefault();
+    if (event.target.value.length) {
+      setSearchPerson(event.target.value);
+    }
+  };
 
   return (
     <Content>
       <Input
         type="text"
         placeholder="search users.."
-        onChange={e => setSearchPerson(e.target.value)}
-      />{" "}
+        onChange={handleChangeInput}
+      />
       <Button type="submit" placeholder="Search">
         Search
       </Button>
