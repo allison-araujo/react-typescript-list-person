@@ -12,4 +12,4 @@
 
 ### Exibir um mapa com as coordenadas do usuário selecionado
 
-### Exibir a cidade é o país do usuário selecionad
+### Exibir a cidade é o país do usuário selecionado

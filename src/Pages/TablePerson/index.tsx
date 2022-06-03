@@ -1,20 +1,16 @@
 import React from "react";
-import { Column, Container, ImageBoxRow, Name, Row } from "./styles";
+import { Container, Grid, ImageBoxRow, Name } from "./styles";
 
 const TablePerson = ({ person }: any) => {
   return (
-    <div>
+    <Container>
       {person.map((item: any) => (
-        <Container>
-          <Row>
-            <Column>
-              <ImageBoxRow src={item.medium} alt={item.first} />
-              <Name>{item.first}</Name>
-            </Column>
-          </Row>
-        </Container>
+        <Grid>
+          <ImageBoxRow src={item.medium} alt={item.first} />
+          <Name>{item.first}</Name>
+        </Grid>
       ))}
-    </div>
+    </Container>
   );
 };
 

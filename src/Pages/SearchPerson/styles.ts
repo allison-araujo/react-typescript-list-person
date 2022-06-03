@@ -5,13 +5,11 @@ export const Card = styled.div`
   flex-direction: row;
 `;
 
-export const ListTablePerson = styled.div``;
-
 export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  height: 40vh;
   width: 100%;
   color: #fff;
 `;

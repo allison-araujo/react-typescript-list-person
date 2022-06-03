@@ -3,7 +3,6 @@ import Person from "../../Api/api";
 import Content from "../Content";
 import Loading from "../Loading";
 import TablePerson from "../TablePerson";
-import { ListTablePerson } from "./styles";
 
 interface IDataProps {
   gender: string;
@@ -76,10 +75,8 @@ const SearchPerson = () => {
         Search
       </Button> */}
       <Loading spinning={loading}>
-        <ListTablePerson>
-          {/* <ListPerson person={filterPerson} /> */}
-          <TablePerson person={filterPerson} />
-        </ListTablePerson>
+        {/* <ListPerson person={filterPerson} /> */}
+        <TablePerson person={filterPerson} />
       </Loading>
     </Content>
   );
