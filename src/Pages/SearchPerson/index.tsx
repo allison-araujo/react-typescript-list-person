@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import Person from "../../Api/api";
+import Toogle from "../../Components/Toggle";
 import Option from "../../utils/options";
 import Button from "../Button";
 import Content from "../Content";
 import EmptyPage from "../EmptyPage";
+import ListPerson from "../ListPerson";
 import Loading from "../Loading";
 import TablePerson from "../TablePerson";
 import {
-  Checkbox,
   Column,
   Container,
   Input,
@@ -15,9 +17,8 @@ import {
   InputSelectName,
   Row,
   Space,
-  Switch,
-  Toogle,
 } from "./styles";
+
 interface IDataProps {
   gender: string;
   name: {
@@ -43,6 +44,8 @@ const SearchPerson = () => {
   const [searchPerson, setSearchPerson] = useState("");
   const [filterPerson, setFilterPerson] = useState([] as any);
   const [loading, setLoading] = useState(false);
+  const { id: personId } = useParams();
+  const [checked, setChecked] = useState(false);
 
   const user = new Person();
 
@@ -70,6 +73,10 @@ const SearchPerson = () => {
       setLoading(false);
     }
   }, [searchPerson]);
+
+  const handleChangeCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(e.target.checked);
+  };
 
   return (
     <Content>
@@ -105,10 +112,11 @@ const SearchPerson = () => {
               </InputSelect>
             </Column>
             <Column>
-              <Toogle>
-                <Checkbox type="checkbox" />
-                <Switch />
-              </Toogle>
+              <Toogle
+                checked={checked}
+                label="Listar"
+                handleChange={handleChangeCheck}
+              />
             </Column>
           </Space>
         </Row>
@@ -117,8 +125,13 @@ const SearchPerson = () => {
           <EmptyPage />
         ) : (
           <Loading spinning={loading}>
-            {/* <ListPerson person={filterPerson} /> */}
-            <TablePerson person={filterPerson} />
+            <Link to={`/profile/${personId}`}>
+              {checked ? (
+                <ListPerson person={filterPerson} />
+              ) : (
+                <TablePerson person={filterPerson} />
+              )}
+            </Link>
           </Loading>
         )}
       </Container>
