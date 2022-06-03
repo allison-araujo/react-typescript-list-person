@@ -8,17 +8,17 @@ import {
 } from "./styles";
 
 interface IToogleProps {
-  labelLeft: string;
+  label: string;
   checked: boolean;
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const ToogleSelector = ({ checked, onChange, labelLeft }: IToogleProps) => {
+const ToogleSelector = ({ checked, handleChange, label }: IToogleProps) => {
   return (
     <Container>
-      <ToogleLabel>{labelLeft}</ToogleLabel>
+      <ToogleLabel>{label}</ToogleLabel>
       <CheckBoxWrapper>
-        <CheckBox type="checkbox" checked={checked} onChange={onChange} />
+        <CheckBox type="checkbox" checked={checked} onChange={handleChange} />
         <CheckBoxLabel htmlFor="checkbox" />
       </CheckBoxWrapper>
     </Container>
