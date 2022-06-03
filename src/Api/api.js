@@ -7,13 +7,16 @@ class Person {
 
   onError = error => {};
 
-  async searchPersonList() {
+  async searchPersonList(keyword) {
     try {
-      const res = await axios.get(`${this.BASE_URL}/?results=12`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await axios.get(
+        `${this.BASE_URL}/?results=12&name=${keyword}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const json = res.data.results;
 
       return json;
