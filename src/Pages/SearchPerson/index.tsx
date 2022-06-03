@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import Person from "../../Api/api";
+import Button from "../Button";
 import Content from "../Content";
+import ListPerson from "../ListPerson";
 import Loading from "../Loading";
-import TablePerson from "../TablePerson";
-
+import { Input } from "./styles";
 interface IDataProps {
   gender: string;
   name: {
@@ -27,7 +28,7 @@ interface IDataProps {
 
 const SearchPerson = () => {
   const [searchPerson, setSearchPerson] = useState("");
-  const [filterPerson, setFilterPerson] = useState([]);
+  const [filterPerson, setFilterPerson] = useState([] as any);
   const [loading, setLoading] = useState(false);
 
   const user = new Person();
@@ -66,17 +67,17 @@ const SearchPerson = () => {
 
   return (
     <Content>
-      {/* <Input
+      <Input
         type="text"
         placeholder="search users.."
         onChange={e => setSearchPerson(e.target.value)}
       />{" "}
       <Button type="submit" placeholder="Search">
         Search
-      </Button> */}
+      </Button>
       <Loading spinning={loading}>
-        {/* <ListPerson person={filterPerson} /> */}
-        <TablePerson person={filterPerson} />
+        <ListPerson person={filterPerson} />
+        {/* <TablePerson person={filterPerson} /> */}
       </Loading>
     </Content>
   );

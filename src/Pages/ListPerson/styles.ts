@@ -23,7 +23,9 @@ export const Th = styled.th`
 
 export const Tr = styled.tr``;
 
-export const Tbody = styled.tbody``;
+export const Tbody = styled.tbody`
+  border: none;
+`;
 
 export const Td = styled.td`
   border-bottom: 1px solid #dddddddd;
@@ -47,10 +49,14 @@ export const ImageBox = styled.img`
 export const Table = styled.table`
   width: 100%;
   table-layout: fixed;
-  min-width: 1000px;
+  min-width: 100px;
   border-collapse: collapse;
 `;
 
 export const Container = styled.div`
   overflow: auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
 `;
