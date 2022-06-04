@@ -11,11 +11,7 @@ class Person {
     try {
       const res = await axios.get(
         `${this.BASE_URL}/?results=12&name=${keyword}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
+        this.axiosRequest()
       );
       const json = res.data.results;
 
@@ -29,11 +25,10 @@ class Person {
   }
   async profilePersonId(id) {
     try {
-      const res = await axios.get(`${this.BASE_URL}/?results=1&id=${id}`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await axios.get(
+        `${this.BASE_URL}/?results=1&id=${id}`,
+        this.axiosRequest()
+      );
       const json = res.data.results;
 
       return json;
@@ -43,6 +38,14 @@ class Person {
         return false;
       }
     }
+  }
+
+  axiosRequest() {
+    return {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
   }
 }
 
