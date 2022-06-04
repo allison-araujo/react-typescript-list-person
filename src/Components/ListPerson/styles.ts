@@ -31,6 +31,7 @@ export const Td = styled.td`
   border-bottom: 1px solid #dddddddd;
   padding: 10px 20px;
   word-break: break-all;
+  text-decoration: none;
   text-align: center;
   text-decoration: none;
   color: #000;
@@ -50,6 +51,7 @@ export const Table = styled.table`
   width: 100%;
   table-layout: fixed;
   min-width: 100px;
+  text-decoration: none !important;
   border-collapse: collapse;
 `;
 
@@ -59,4 +61,5 @@ export const Container = styled.div`
   height: 100%;
   display: flex;
   flex-direction: row;
+  text-decoration: none;
 `;

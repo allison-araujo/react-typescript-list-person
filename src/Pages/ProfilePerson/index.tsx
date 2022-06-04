@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Person from "../../Api/api";
-import Loading from "../Loading";
+import Loading from "../../Components/Loading";
 import { Container } from "./styles";
 
 {
@@ -35,7 +35,9 @@ interface IProfileProsp {
     value: string | number;
   };
 }
-
+interface ITextProps {
+  text: string;
+}
 interface IDataProps {
   id: string | number;
   name: string;
@@ -69,7 +71,7 @@ const ProfilePerson = () => {
           }));
 
           setPerson(filterProfile);
-
+          console.log("filterPRofile componen PRofile=> ", filterProfile);
           setLoading(false);
         }
       });
@@ -78,14 +80,32 @@ const ProfilePerson = () => {
       setLoading(false);
     }
   }, []);
+
+  // const AnyReactComponent = ({ text }: ITextProps) => <div>{text}</div>;
+
   return (
     <Container>
       <Loading spinning={loading}>
-        {person.map((one: IDataProps) => (
-          <div key={one.id}>{one.name}</div>
+        {person.map((item: IDataProps) => (
+          <h1>{item.name}</h1>
         ))}
       </Loading>
     </Container>
+
+    // <div style={{ height: '100vh', width: '100%' }}>
+    //   <GoogleMapReact
+    //     bootstrapURLKeys={{ key: /* YOUR KEY HERE */ }}
+    //     defaultCenter={this.props.center}
+    //     defaultZoom={10}
+    //   >
+    //     <AnyReactComponent
+    //       lat={item.latitude}
+    //       lng={item.longitude}
+    //       text="My Marker"
+    //       />
+    //   </GoogleMapReact>
+    // </div>
+    // ))}
   );
 };
 

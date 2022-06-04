@@ -9,7 +9,7 @@ export const LoadContainer = styled.div`
 const Animaiiton = keyframes`
   0%,100%{
   transform:scale(0.5);
-  background-color: #1e90ff;
+  background-color: #d7dbdd;
   }
   50%{
     transform:scale(1);  
@@ -19,14 +19,14 @@ const Animaiiton = keyframes`
 
 `;
 export const Spiner = styled.div`
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background-color: #d7dbdd;
   display: inline-block;
   margin: 0.2rem;
   animation-name: ${Animaiiton};
-  animation-duration: 3.5s;
+  animation-duration: 20s;
   animation-iteration-count: infinite;
 `;
 

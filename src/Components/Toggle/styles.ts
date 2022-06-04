@@ -6,6 +6,7 @@ export const CheckBoxWrapper = styled.div`
 
 export const ToogleLabel = styled.span`
   color: #000;
+  padding: 10px;
   left: 10px;
 `;
 

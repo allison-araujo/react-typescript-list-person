@@ -17,7 +17,6 @@ const Loading = ({ spinning, children }: any) => {
         <Spiner />
         <Spiner />
         <Spiner />
-        <Spiner />
       </LoadContainer>
     </>
   );

@@ -20,7 +20,6 @@ const ListPerson = ({ person }: Prop) => {
   return (
     <>
       <Container>
-        {/* <Link to={`/profile/${id}`}> */}
         <Table>
           <Thead>
             <Tr>
@@ -50,7 +49,6 @@ const ListPerson = ({ person }: Prop) => {
             </Tbody>
           ))}
         </Table>
-        {/* </Link> */}
       </Container>
     </>
   );
