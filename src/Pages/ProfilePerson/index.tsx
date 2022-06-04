@@ -87,9 +87,19 @@ const ProfilePerson = () => {
     <Container>
       <Loading spinning={loading}>
         {person.map((item: IDataProps) => (
-          <h1>{item.name}</h1>
+          <>
+            <h1>{item.name}</h1>
+            <div>{item.state}</div>
+          </>
         ))}
       </Loading>
+      <div>
+        {person && person.photo}
+        {person.city}
+        {person.state}
+        {person.latitude}
+        {person.longitude}
+      </div>
     </Container>
 
     // <div style={{ height: '100vh', width: '100%' }}>

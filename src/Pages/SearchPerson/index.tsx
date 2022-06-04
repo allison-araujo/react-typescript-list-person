@@ -1,23 +1,18 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Person from "../../Api/api";
+import Button from "../../Components/Button";
+import CheckboxButton from "../../Components/CheckboxButton";
+import Content from "../../Components/Content";
+import EmptyPage from "../../Components/EmptyPage";
+import ListPerson from "../../Components/ListPerson";
+import Loading from "../../Components/Loading";
+import Select from "../../Components/SelectInput";
+import TablePerson from "../../Components/TablePerson";
 import Toogle from "../../Components/Toggle";
-import Option from "../../utils/options";
-import Button from "../Button";
-import Content from "../Content";
-import EmptyPage from "../EmptyPage";
-import ListPerson from "../ListPerson";
-import Loading from "../Loading";
-import TablePerson from "../TablePerson";
-import {
-  Column,
-  Container,
-  Input,
-  InputSelect,
-  InputSelectName,
-  Row,
-  Space,
-} from "./styles";
+import values from "../../utils/options";
+import valuesOptions from "../../utils/valuesOptions";
+import { Column, Container, Input, Row, Space } from "./styles";
 
 interface IDataProps {
   gender: string;
@@ -44,8 +39,10 @@ const SearchPerson = () => {
   const [searchPerson, setSearchPerson] = useState("");
   const [filterPerson, setFilterPerson] = useState([] as any);
   const [loading, setLoading] = useState(false);
-  const { id: personId } = useParams();
+  const { id } = useParams();
   const [checked, setChecked] = useState(false);
+  const [checkedbox, setCheckedbox] = useState(false);
+  const [select, setSelect] = useState();
 
   const user = new Person();
 
@@ -74,10 +71,22 @@ const SearchPerson = () => {
     }
   }, [searchPerson]);
 
-  const handleChangeCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(e.target.checked);
   };
 
+  const handleChangeCheckBox = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCheckedbox(e.target.checked);
+  };
+
+  const handleSelectChange = () => {
+    console.log("test");
+  };
+  const handleChangeSelect = () => {
+    console.log("test");
+  };
+
+  console.log("id => ", id);
   return (
     <Content>
       <Container>
@@ -98,24 +107,23 @@ const SearchPerson = () => {
         <Row>
           <Space>
             <Column>
-              <InputSelectName>
-                {Option.map(option => (
-                  <option value={option.value}>{option.label}</option>
-                ))}
-              </InputSelectName>
+              <Select options={valuesOptions} onChange={handleChangeSelect} />
             </Column>
             <Column>
-              <InputSelect>
-                {Option.map(option => (
-                  <option value={option.value}>{option.label}</option>
-                ))}
-              </InputSelect>
+              <Select options={values} onChange={handleSelectChange} />
+            </Column>
+            <Column>
+              <CheckboxButton
+                checked={checkedbox}
+                label="Adults"
+                handleChange={handleChangeCheckBox}
+              />
             </Column>
             <Column>
               <Toogle
                 checked={checked}
                 label="Listar"
-                handleChange={handleChangeCheck}
+                handleChange={handleChangeToggle}
               />
             </Column>
           </Space>
@@ -125,7 +133,7 @@ const SearchPerson = () => {
           <EmptyPage />
         ) : (
           <Loading spinning={loading}>
-            <Link to={`/profile/${personId}`}>
+            <Link to={`/profile/${id}`}>
               {checked ? (
                 <ListPerson person={filterPerson} />
               ) : (

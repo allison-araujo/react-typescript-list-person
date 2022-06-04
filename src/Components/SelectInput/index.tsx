@@ -1,7 +1,7 @@
 import React from "react";
-import { Container } from "./styles";
+import { Container, InputSelect } from "./styles";
 
-interface ISelectInput {
+interface ISelectInputProps {
   options: {
     value: string | number;
     label: string | number;
@@ -10,19 +10,19 @@ interface ISelectInput {
   defaultValue?: string | number;
 }
 
-const SelectInput: React.FC<ISelectInput> = ({
+const SelectInput = ({
   options,
   onChange,
   defaultValue,
-}) => (
+}: ISelectInputProps) => (
   <Container>
-    <select onChange={onChange} defaultValue={defaultValue}>
+    <InputSelect onChange={onChange} defaultValue={defaultValue}>
       {options.map(option => (
         <option key={option.value} value={option.value}>
           {option.label}
         </option>
       ))}
-    </select>
+    </InputSelect>
   </Container>
 );
 

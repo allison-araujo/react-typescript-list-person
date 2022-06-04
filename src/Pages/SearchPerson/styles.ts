@@ -30,17 +30,6 @@ export const InputSelectName = styled.select`
   border: none;
 `;
 
-export const InputSelect = styled.select`
-  width: 50%;
-  display: flex;
-  justify-content: start;
-  border-radius: 8px;
-  padding: 15px;
-  height: 50px;
-  font-size: 10px;
-  border: none;
-`;
-
 export const Row = styled.div`
   display: flex;
   width: 100%;
