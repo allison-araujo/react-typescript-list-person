@@ -93,13 +93,13 @@ const ProfilePerson = () => {
           </>
         ))}
       </Loading>
-      <div>
+      {/* <div>
         {person && person.photo}
         {person.city}
         {person.state}
         {person.latitude}
         {person.longitude}
-      </div>
+      </div> */}
     </Container>
 
     // <div style={{ height: '100vh', width: '100%' }}>

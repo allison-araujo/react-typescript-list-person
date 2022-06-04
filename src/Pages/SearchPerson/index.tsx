@@ -5,10 +5,10 @@ import Button from "../../Components/Button";
 import CheckboxButton from "../../Components/CheckboxButton";
 import Content from "../../Components/Content";
 import EmptyPage from "../../Components/EmptyPage";
+import LifoPerson from "../../Components/LifoPerson";
 import ListPerson from "../../Components/ListPerson";
 import Loading from "../../Components/Loading";
 import Select from "../../Components/SelectInput";
-import TablePerson from "../../Components/TablePerson";
 import Toogle from "../../Components/Toggle";
 import values from "../../utils/options";
 import valuesOptions from "../../utils/valuesOptions";
@@ -42,7 +42,7 @@ const SearchPerson = () => {
   const { id } = useParams();
   const [checked, setChecked] = useState(false);
   const [checkedbox, setCheckedbox] = useState(false);
-  const [select, setSelect] = useState();
+  // const [select, setSelect] = useState();
 
   const user = new Person();
 
@@ -137,7 +137,7 @@ const SearchPerson = () => {
               {checked ? (
                 <ListPerson person={filterPerson} />
               ) : (
-                <TablePerson person={filterPerson} />
+                <LifoPerson person={filterPerson} />
               )}
             </Link>
           </Loading>

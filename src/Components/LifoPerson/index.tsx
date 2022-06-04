@@ -10,7 +10,7 @@ type IProps = {
   person: [];
 };
 
-const TablePerson = ({ person }: IProps) => {
+const LifoPerson = ({ person }: IProps) => {
   return (
     <Container>
       {person.map((item: IItemsProps) => (
@@ -23,4 +23,4 @@ const TablePerson = ({ person }: IProps) => {
   );
 };
 
-export default TablePerson;
+export default LifoPerson;
