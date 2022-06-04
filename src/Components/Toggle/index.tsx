@@ -16,9 +16,9 @@ interface IToogleProps {
 const ToogleSelector = ({ checked, handleChange, label }: IToogleProps) => {
   return (
     <Container>
+      <ToogleLabel>{label}</ToogleLabel>
       <CheckBoxWrapper>
         <CheckBox type="checkbox" checked={checked} onChange={handleChange} />
-        <ToogleLabel>{label}</ToogleLabel>
         <CheckBoxLabel htmlFor="checkbox" />
       </CheckBoxWrapper>
     </Container>
