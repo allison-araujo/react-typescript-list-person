@@ -4,8 +4,10 @@ import Person from "../../Api/api";
 import Button from "../../Components/Button";
 import ComponentMaps from "../../Components/ComponentMaps";
 import Content from "../../Components/Content";
+import Details from "../../Components/Details";
+import EmptyPage from "../../Components/EmptyPage";
 import Loading from "../../Components/Loading";
-import { Image, Location, Name } from "./styles";
+import { ButtonLink } from "./styles";
 
 {
   /*exibir
@@ -38,18 +40,6 @@ interface IProfileProsp {
     value: string | number;
   };
 }
-// interface ITextProps {
-//   text: string;
-// }
-// interface IDataProps {
-//   id: string | number;
-//   name: string;
-//   photo: string;
-//   city: string;
-//   state: string;
-//   latitude: string;
-//   longitude: string;
-// }
 
 const ProfilePerson = () => {
   const [person, setPerson] = useState([] as any);
@@ -74,7 +64,7 @@ const ProfilePerson = () => {
           }));
 
           setPerson(filterProfile);
-          console.log("filterPRofile componen PRofile=> ", filterProfile);
+
           setLoading(false);
         }
       });
@@ -84,25 +74,27 @@ const ProfilePerson = () => {
     }
   }, [personId]);
 
-  console.log("person", person);
   return (
     <Content>
       <Loading spinning={loading}>
-        <Link to={`/`}>
-          <Button>Voltar</Button>
-        </Link>
-        <ComponentMaps
-          latitude={person.latitude}
-          longitude={person.longitude}
-          zoom={person.zoom}
-        />
-        <span>{person.name}</span>
-
-        <Image src={person.photo} />
-        <Name>{person.first}</Name>
-        <Location>
-          {person.city}, {person.state}
-        </Location>
+        {person.length !== 0 ? (
+          <>
+            <ComponentMaps zoom={15} />
+            <ButtonLink>
+              <Link to={`/`}>
+                <Button>Voltar</Button>
+              </Link>
+            </ButtonLink>
+            <Details
+              image={person[0].photo}
+              name={person[0].name}
+              city={person[0].city}
+              state={person[0].state}
+            />
+          </>
+        ) : (
+          <EmptyPage text="User Not Id exists!" />
+        )}
       </Loading>
     </Content>
   );
