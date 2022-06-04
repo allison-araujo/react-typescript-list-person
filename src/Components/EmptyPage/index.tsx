@@ -1,9 +1,13 @@
 import React from "react";
 import { Container, MessageNotFound } from "./styles";
-const EmptyPage = () => {
+
+interface ITextProps {
+  text: string;
+}
+const EmptyPage = ({ text }: ITextProps) => {
   return (
     <Container>
-      <MessageNotFound>Not User found!</MessageNotFound>
+      <MessageNotFound>{text}</MessageNotFound>
     </Container>
   );
 };

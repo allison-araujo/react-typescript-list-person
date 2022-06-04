@@ -130,7 +130,7 @@ const SearchPerson = () => {
         </Row>
 
         {searchPerson.length === 0 ? (
-          <EmptyPage />
+          <EmptyPage text="Not User found! " />
         ) : (
           <Loading spinning={loading}>
             <Link to={`/profile/${id}`}>
