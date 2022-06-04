@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  height: 100vh;
   flex-direction: column;
   display: flex;
   align-items: center;
@@ -10,7 +9,6 @@ export const Container = styled.div`
   justify-content: center;
 `;
 export const Input = styled.input`
-  grid-column: 1/4;
   font-size: 16px;
   padding: 15px;
   text-align: left;
@@ -22,8 +20,9 @@ export const Input = styled.input`
 `;
 
 export const InputSelectName = styled.select`
-  justify-content: start;
   width: 50%;
+  display: flex;
+  justify-content: start;
   border-radius: 8px;
   height: 50px;
   padding: 10px;
@@ -32,8 +31,9 @@ export const InputSelectName = styled.select`
 `;
 
 export const InputSelect = styled.select`
-  justify-content: space-between;
   width: 50%;
+  display: flex;
+  justify-content: start;
   border-radius: 8px;
   padding: 15px;
   height: 50px;
@@ -48,6 +48,7 @@ export const Row = styled.div`
 
 export const Column = styled.div`
   text-align: center;
+  display: flex;
   color: white;
   border: 0.2rem solid white;
   width: 100%;
@@ -56,7 +57,6 @@ export const Column = styled.div`
 export const Space = styled.div`
   display: flex;
   width: 100%;
-  justify-content: space-around;
 `;
 
 export const Checkbox = styled.input`
@@ -72,7 +72,7 @@ export const Toogle = styled.div`
 `;
 
 export const Switch = styled.span`
-  display: block;
+  display: flex;
   width: 24px;
   margin: 5px;
   background: #000;
@@ -84,3 +84,5 @@ export const Switch = styled.span`
   border-radius: 20px;
   transition: all 0.3s ease-in 0s;
 `;
+
+// export const Opt = styled.option``;
