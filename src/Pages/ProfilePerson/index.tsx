@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Person from "../../Api/api";
+import Button from "../../Components/Button";
+import ComponentMaps from "../../Components/ComponentMaps";
+import Content from "../../Components/Content";
 import Loading from "../../Components/Loading";
-import { Container } from "./styles";
+import { Image, Location, Name } from "./styles";
 
 {
   /*exibir
@@ -35,21 +38,21 @@ interface IProfileProsp {
     value: string | number;
   };
 }
-interface ITextProps {
-  text: string;
-}
-interface IDataProps {
-  id: string | number;
-  name: string;
-  photo: string;
-  city: string;
-  state: string;
-  latitude: string;
-  longitude: string;
-}
+// interface ITextProps {
+//   text: string;
+// }
+// interface IDataProps {
+//   id: string | number;
+//   name: string;
+//   photo: string;
+//   city: string;
+//   state: string;
+//   latitude: string;
+//   longitude: string;
+// }
 
 const ProfilePerson = () => {
-  const [person, setPerson] = useState([]);
+  const [person, setPerson] = useState([] as any);
   const [loading, setLoading] = useState(false);
   const { id: personId } = useParams();
 
@@ -79,43 +82,29 @@ const ProfilePerson = () => {
       alert("Nao foi possivel buscar Pessoa");
       setLoading(false);
     }
-  }, []);
+  }, [personId]);
 
-  // const AnyReactComponent = ({ text }: ITextProps) => <div>{text}</div>;
-
+  console.log("person", person);
   return (
-    <Container>
+    <Content>
       <Loading spinning={loading}>
-        {person.map((item: IDataProps) => (
-          <>
-            <h1>{item.name}</h1>
-            <div>{item.state}</div>
-          </>
-        ))}
-      </Loading>
-      {/* <div>
-        {person && person.photo}
-        {person.city}
-        {person.state}
-        {person.latitude}
-        {person.longitude}
-      </div> */}
-    </Container>
+        <Link to={`/`}>
+          <Button>Voltar</Button>
+        </Link>
+        <ComponentMaps
+          latitude={person.latitude}
+          longitude={person.longitude}
+          zoom={person.zoom}
+        />
+        <span>{person.name}</span>
 
-    // <div style={{ height: '100vh', width: '100%' }}>
-    //   <GoogleMapReact
-    //     bootstrapURLKeys={{ key: /* YOUR KEY HERE */ }}
-    //     defaultCenter={this.props.center}
-    //     defaultZoom={10}
-    //   >
-    //     <AnyReactComponent
-    //       lat={item.latitude}
-    //       lng={item.longitude}
-    //       text="My Marker"
-    //       />
-    //   </GoogleMapReact>
-    // </div>
-    // ))}
+        <Image src={person.photo} />
+        <Name>{person.first}</Name>
+        <Location>
+          {person.city}, {person.state}
+        </Location>
+      </Loading>
+    </Content>
   );
 };
 
