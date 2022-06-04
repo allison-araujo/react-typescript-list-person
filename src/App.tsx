@@ -7,8 +7,6 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/" element={<EmptyPage />} /> */}
-
         <Route path="/" element={<SearchPerson />} />
         <Route path="/profile/:id" element={<ProfilePerson />} />
       </Routes>
