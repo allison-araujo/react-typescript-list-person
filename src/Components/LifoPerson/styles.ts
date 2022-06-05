@@ -1,18 +1,12 @@
 import styled from "styled-components";
 
-{
-  /*
-table styles
-*/
-}
-
 export const Container = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   justify-content: center;
 
-  grid-gap: 90px;
+  grid-gap: 100px;
 `;
 
 export const ImageBoxRow = styled.img`
@@ -29,6 +23,8 @@ export const Name = styled.div`
   justify-content: center;
   font-size: 15px;
   height: 30px;
+  text-decoration: none;
+  color: #000;
   align-items: center;
 `;
 

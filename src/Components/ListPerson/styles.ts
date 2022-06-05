@@ -13,7 +13,7 @@ export const Thead = styled.thead`
 `;
 
 export const Th = styled.th`
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #dddddddd;
   padding: 10px 20px;
   word-break: break-all;
   text-align: center;
@@ -35,9 +35,6 @@ export const Td = styled.td`
   text-align: center;
   text-decoration: none;
   color: #000;
-  &::hover {
-    color: #0298cf;
-  }
 `;
 
 export const ImageBox = styled.img`
