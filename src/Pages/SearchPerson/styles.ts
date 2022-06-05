@@ -17,6 +17,7 @@ export const Input = styled.input`
   border: none;
   background-color: #d7dbdd;
   border-radius: 8px;
+  margin: 50px;
 `;
 
 export const InputSelectName = styled.select`
@@ -38,6 +39,7 @@ export const Row = styled.div`
 export const Column = styled.div`
   text-align: center;
   display: flex;
+  justify-content: center;
   color: white;
   border: 0.2rem solid white;
   width: 100%;
@@ -46,6 +48,7 @@ export const Column = styled.div`
 export const Space = styled.div`
   display: flex;
   width: 60%;
+  justify-content: flex-start;
 `;
 
 export const Checkbox = styled.input`
@@ -74,4 +77,21 @@ export const Switch = styled.span`
   transition: all 0.3s ease-in 0s;
 `;
 
-// export const Opt = styled.option``;
+export const Button = styled.button`
+  margin: 40px;
+  width: 15%;
+  height: 45px;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  color: #fff;
+  background-color: #1e90ff;
+  transition: opacity 0.3s;
+`;
+
+export const Direction = styled.div`
+  display: flex;
+  width: 100%;
+`;

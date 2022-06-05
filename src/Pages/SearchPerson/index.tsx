@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Person from "../../Api/api";
-import Button from "../../Components/Button";
 import CheckboxButton from "../../Components/CheckboxButton";
 import Content from "../../Components/Content";
 import EmptyPage from "../../Components/EmptyPage";
@@ -12,7 +11,15 @@ import Select from "../../Components/SelectInput";
 import Toogle from "../../Components/Toggle";
 import values from "../../utils/options";
 import valuesOptions from "../../utils/valuesOptions";
-import { Column, Container, Input, Row, Space } from "./styles";
+import {
+  Button,
+  Column,
+  Container,
+  Direction,
+  Input,
+  Row,
+  Space,
+} from "./styles";
 
 interface IDataProps {
   gender: string;
@@ -90,17 +97,18 @@ const SearchPerson = () => {
     <Content>
       <Container>
         <Row>
+          <Input
+            type="text"
+            placeholder="search users.."
+            onChange={e => setSearchPerson(e.target.value)}
+          />
+
           <Column>
-            <Input
-              type="text"
-              placeholder="search users.."
-              onChange={e => setSearchPerson(e.target.value)}
-            />
-          </Column>
-          <Column>
-            <Button type="submit" placeholder="Search">
-              Search
-            </Button>
+            <Direction>
+              <Button type="submit" placeholder="Search">
+                Search
+              </Button>
+            </Direction>
           </Column>
         </Row>
         <Row>
@@ -136,7 +144,7 @@ const SearchPerson = () => {
           <EmptyPage text="No User found! " />
         ) : (
           <Loading spinning={loading}>
-            <Link to={`/profile/${id}`}>
+            <Link style={{ textDecoration: "none" }} to={`/profile/${id}`}>
               {checked ? (
                 <ListPerson person={filterPerson} />
               ) : (
