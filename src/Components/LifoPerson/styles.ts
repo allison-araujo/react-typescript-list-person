@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
   display: grid;
+  width: 100%;
+  margin: 40px;
   grid-template-columns: repeat(6, 1fr);
   justify-content: center;
-
-  grid-gap: 100px;
+  grid-gap: 75px;
 `;
 
 export const ImageBoxRow = styled.img`
