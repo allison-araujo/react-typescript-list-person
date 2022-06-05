@@ -12,7 +12,7 @@ export const Container = styled.div`
   grid-template-columns: repeat(6, 1fr);
   justify-content: center;
 
-  grid-gap: 50px;
+  grid-gap: 90px;
 `;
 
 export const ImageBoxRow = styled.img`

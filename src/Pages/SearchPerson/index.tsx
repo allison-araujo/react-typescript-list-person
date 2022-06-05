@@ -41,7 +41,7 @@ const SearchPerson = () => {
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
   const [checked, setChecked] = useState(false);
-  const [checkedbox, setCheckedbox] = useState(false);
+  const [checkedbox, setCheckedbox] = useState(true);
   // const [select, setSelect] = useState();
 
   const user = new Person();
@@ -86,7 +86,6 @@ const SearchPerson = () => {
     console.log("test");
   };
 
-  console.log("id => ", id);
   return (
     <Content>
       <Container>
@@ -119,18 +118,22 @@ const SearchPerson = () => {
                 handleChange={handleChangeCheckBox}
               />
             </Column>
-            <Column>
-              <Toogle
-                checked={checked}
-                label="Listar"
-                handleChange={handleChangeToggle}
-              />
-            </Column>
+            {searchPerson.length !== 0 ? (
+              <Column>
+                <Toogle
+                  checked={checked}
+                  label="Listar"
+                  handleChange={handleChangeToggle}
+                />
+              </Column>
+            ) : (
+              ""
+            )}
           </Space>
         </Row>
 
         {searchPerson.length === 0 ? (
-          <EmptyPage text="Not User found! " />
+          <EmptyPage text="No User found! " />
         ) : (
           <Loading spinning={loading}>
             <Link to={`/profile/${id}`}>

@@ -5,7 +5,13 @@ class Person {
     this.BASE_URL = "https://randomuser.me/api";
   }
 
-  onError = error => {};
+  onError = error => {
+    const {
+      response: { data },
+    } = error;
+
+    return data.error.message;
+  };
 
   async searchPersonList(keyword) {
     try {
@@ -16,11 +22,8 @@ class Person {
       const json = res.data.results;
 
       return json;
-    } catch (error) {
-      if (error.response) {
-        console.log(error.message);
-        return false;
-      }
+    } catch {
+      return this.onError;
     }
   }
   async profilePersonId(id) {
@@ -32,11 +35,8 @@ class Person {
       const json = res.data.results;
 
       return json;
-    } catch (error) {
-      if (error.response) {
-        console.log(error.message);
-        return false;
-      }
+    } catch {
+      return this.onError;
     }
   }
 

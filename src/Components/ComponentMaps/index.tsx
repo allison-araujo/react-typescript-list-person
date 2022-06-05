@@ -3,11 +3,9 @@ import React from "react";
 import { Container } from "./styles";
 
 interface ICoordenatsProps {
-  latitude: number;
-  longitude: number;
   zoom: number;
 }
-const ComponentMaps = ({ latitude, longitude, zoom }: ICoordenatsProps) => {
+const ComponentMaps = ({ zoom }: ICoordenatsProps) => {
   const isLoaded = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: "AIzaSyATYIvLAogpKJafhfsH5UO_wZHtyVnb3jE",
@@ -18,20 +16,17 @@ const ComponentMaps = ({ latitude, longitude, zoom }: ICoordenatsProps) => {
     height: "300px",
   };
 
-  // const valuesDefault = {
-  //   position: {
-  //     lat: { latitude },
-  //     lng: { longitude },
-  //   },
-  //   zoom: { zoom },
-  // };
+  const positon = {
+    lat: 33.8074,
+    lng: 157.0167,
+  };
 
   return (
     <Container>
       {isLoaded ? (
         <GoogleMap
           mapContainerStyle={containerStyle}
-          center={{ lat: latitude, lng: longitude }}
+          center={positon}
           zoom={zoom}
         >
           {/* Child components, such as markers, info windows, etc. */}

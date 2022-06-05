@@ -20,12 +20,12 @@ export const Input = styled.input`
 `;
 
 export const InputSelectName = styled.select`
-  width: 50%;
+  width: 70%;
   display: flex;
   justify-content: start;
   border-radius: 8px;
   height: 50px;
-  padding: 10px;
+  padding: 50px;
   font-size: 10px;
   border: none;
 `;
@@ -45,7 +45,7 @@ export const Column = styled.div`
 
 export const Space = styled.div`
   display: flex;
-  width: 100%;
+  width: 60%;
 `;
 
 export const Checkbox = styled.input`

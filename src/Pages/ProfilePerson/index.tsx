@@ -9,18 +9,6 @@ import EmptyPage from "../../Components/EmptyPage";
 import Loading from "../../Components/Loading";
 import { ButtonLink } from "./styles";
 
-{
-  /*exibir
-
- foto,
- nome,
- cidade,
- pais,
- coodenaas
-
-*/
-}
-
 interface IProfileProsp {
   name: {
     first: string;
