@@ -9,8 +9,7 @@ import ListPerson from "../../Components/ListPerson";
 import Loading from "../../Components/Loading";
 import Select from "../../Components/SelectInput";
 import Toogle from "../../Components/Toggle";
-import values from "../../utils/options";
-import valuesOptions from "../../utils/valuesOptions";
+import { ageValues, genderValues, options, state } from "../../utils/options";
 import {
   Button,
   Column,
@@ -41,7 +40,9 @@ interface IDataProps {
     value: string | number;
   };
 }
-
+interface IGenreProps {
+  gender: string;
+}
 const SearchPerson = () => {
   const [searchPerson, setSearchPerson] = useState("");
   const [filterPerson, setFilterPerson] = useState([] as any);
@@ -49,7 +50,9 @@ const SearchPerson = () => {
   const { id } = useParams();
   const [checked, setChecked] = useState(false);
   const [checkedbox, setCheckedbox] = useState(true);
-  // const [select, setSelect] = useState();
+  const [select, setSelect] = useState("");
+  const [optionSelected, setOptionsSelected] = useState([] as any);
+  const [selectedFilter, setSelectedFilter] = useState();
 
   const user = new Person();
 
@@ -67,7 +70,6 @@ const SearchPerson = () => {
             location: item.location.country,
             gender: item.gender,
           }));
-
           setFilterPerson(filterData);
           setLoading(false);
         }
@@ -78,6 +80,34 @@ const SearchPerson = () => {
     }
   }, [searchPerson]);
 
+  useEffect(() => {
+    if (select === "gender") {
+      setLoading(true);
+      setOptionsSelected(genderValues);
+      console.log("meu genero", selectedFilter);
+      user.searchGenre("female").then(res => {
+        const filterGenre = res.map((item: IDataProps) => ({
+          id: item.id.value,
+          medium: item.picture.medium,
+          first: item.name.first,
+          last: item.name.last,
+          age: item.dob.age,
+          location: item.location.country,
+          gender: item.gender,
+        }));
+        console.log("so femino", filterGenre);
+        setFilterPerson(filterGenre);
+        setLoading(false);
+      });
+
+      // console.log("response", response);
+    } else if (select === "nat") {
+      setOptionsSelected(state);
+    } else if (select === "age") {
+      setOptionsSelected(ageValues);
+    }
+  }, [select]);
+
   const handleChangeToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(e.target.checked);
   };
@@ -86,11 +116,11 @@ const SearchPerson = () => {
     setCheckedbox(e.target.checked);
   };
 
-  const handleSelectChange = () => {
-    console.log("test");
+  const handleSelectChange = (e: any) => {
+    setSelect(e.target.value);
   };
-  const handleChangeSelect = () => {
-    console.log("test");
+  const handleSelectedValuesFilter = (e: any) => {
+    setSelectedFilter(e.target.value);
   };
 
   return (
@@ -114,10 +144,13 @@ const SearchPerson = () => {
         <Row>
           <Space>
             <Column>
-              <Select options={valuesOptions} onChange={handleChangeSelect} />
+              <Select options={options} onChange={handleSelectChange} />
             </Column>
             <Column>
-              <Select options={values} onChange={handleSelectChange} />
+              <Select
+                options={optionSelected}
+                onChange={handleSelectedValuesFilter}
+              />
             </Column>
             <Column>
               <CheckboxButton
@@ -130,7 +163,7 @@ const SearchPerson = () => {
               <Column>
                 <Toogle
                   checked={checked}
-                  label="Listar"
+                  label="Lista"
                   handleChange={handleChangeToggle}
                 />
               </Column>
