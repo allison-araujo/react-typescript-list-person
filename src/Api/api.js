@@ -2,7 +2,7 @@ import axios from "axios";
 
 class Person {
   constructor() {
-    this.BASE_URL = "https://randomuser.me/api";
+    this.BASE_URL = "https://randomuser.me/api/1.3";
   }
 
   onError = error => {
@@ -34,6 +34,20 @@ class Person {
       );
       const json = res.data.results;
 
+      return json;
+    } catch {
+      return this.onError;
+    }
+  }
+
+  async searchGenre(genre) {
+    try {
+      const res = await axios.get(
+        `${this.BASE_URL}/?results=12&gender=${genre}`,
+        this.axiosRequest()
+      );
+      const json = res.data.results;
+      console.log("só com mesmo generos", json);
       return json;
     } catch {
       return this.onError;
