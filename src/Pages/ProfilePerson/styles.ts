@@ -16,5 +16,8 @@ export const Map = styled.div`
 `;
 
 export const ButtonLink = styled.div`
-  width: 100%;
+  width: 90%;
+  position: absolute;
+  display: flex;
+  justify-content: start;
 `;

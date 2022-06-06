@@ -21,9 +21,12 @@ export const Location = styled.span`
 `;
 
 export const Image = styled.img`
-  width: 100px;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  width: 150px;
+  height: 150px;
   align-items: center;
-  height: 100px;
   border-radius: 100px;
   justify-content: center;
 `;
