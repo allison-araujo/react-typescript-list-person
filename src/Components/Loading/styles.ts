@@ -10,11 +10,11 @@ export const LoadContainer = styled.div`
 const Animation = keyframes`
   0%,100%{
   transform:scale(0.5);
-  background-color: #d7dbdd;
+  background-color: #8A8E90;
   }
   50%{
     transform:scale(1);  
-    background-color: #d7dbdd;
+    background-color: #8A8E90;
   }
 
 
@@ -25,7 +25,6 @@ export const Spiner = styled.div`
   border-radius: 50%;
   background-color: #d7dbdd;
   display: inline-block;
-  margin: 0.2rem;
   animation-name: ${Animation};
   animation-duration: 20s;
   animation-iteration-count: infinite;
