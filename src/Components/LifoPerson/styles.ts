@@ -6,7 +6,7 @@ export const Container = styled.div`
   margin: 40px;
   grid-template-columns: repeat(6, 1fr);
   justify-content: center;
-  grid-gap: 75px;
+  grid-gap: 20%;
 `;
 
 export const ImageBoxRow = styled.img`

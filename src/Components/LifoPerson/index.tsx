@@ -3,7 +3,8 @@ import { Container, Grid, ImageBoxRow, Name } from "./styles";
 
 interface IItemsProps {
   medium: string;
-  first: string;
+  first?: string;
+  id: string | number;
 }
 
 type IProps = {

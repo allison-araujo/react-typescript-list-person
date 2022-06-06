@@ -6,14 +6,14 @@ type Prop = {
 };
 
 interface IItemsProps {
-  id: string | number;
-  medium: string;
-  name: string;
-  first: string;
-  last: string;
-  age: string;
-  location: string;
-  gender: string;
+  id?: string | number;
+  medium?: string;
+  name?: string;
+  first?: string;
+  last?: string;
+  age?: string;
+  location?: string;
+  gender?: string;
 }
 
 const ListPerson = ({ person }: Prop) => {
@@ -32,7 +32,7 @@ const ListPerson = ({ person }: Prop) => {
           </Thead>
 
           {person.map((item: IItemsProps) => (
-            <Tbody key={item.id}>
+            <Tbody>
               <Tr>
                 <Td>
                   <ImageBox src={item.medium} alt={item.name} />

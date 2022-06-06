@@ -67,7 +67,11 @@ const ProfilePerson = () => {
       <Loading spinning={loading}>
         {person.length !== 0 ? (
           <>
-            <ComponentMaps zoom={15} />
+            <ComponentMaps
+              latitude={person[0].latitude}
+              longitude={person[0].longitude}
+              zoom={15}
+            />
             <ButtonLink>
               <Link to={`/`}>
                 <Button>Voltar</Button>

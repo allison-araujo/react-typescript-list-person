@@ -26,6 +26,6 @@ export const Spiner = styled.div`
   background-color: #d7dbdd;
   display: inline-block;
   animation-name: ${Animation};
-  animation-duration: 20s;
+  animation-duration: 10s;
   animation-iteration-count: infinite;
 `;

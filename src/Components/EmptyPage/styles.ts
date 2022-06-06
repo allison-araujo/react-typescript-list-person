@@ -13,7 +13,9 @@ export const MessageNotFound = styled.h2`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: 400px;
   height: 5vh;
   width: 100%;
+  font-family: "Roboto Condensed", sans-serif;
   color: #000;
 `;

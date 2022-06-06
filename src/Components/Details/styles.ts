@@ -3,7 +3,10 @@ import styled from "styled-components";
 export const Container = styled.div``;
 
 export const Name = styled.label`
-  display: flex;
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  padding: 15x;
   width: 100%;
   bottom: 10px;
   justify-content: center;
@@ -13,8 +16,10 @@ export const Name = styled.label`
 `;
 
 export const Location = styled.span`
-  display: flex;
-  width: 100%;
+  position: absolute;
+  width: 50%;
+  left: 50%;
+  top: 80%;
   font-size: 20;
   justify-content: center;
   align-items: center;
@@ -23,7 +28,7 @@ export const Location = styled.span`
 export const Image = styled.img`
   position: absolute;
   left: 50%;
-  top: 40%;
+  top: 35%;
   width: 150px;
   height: 150px;
   align-items: center;
