@@ -47,7 +47,21 @@ class Person {
         this.axiosRequest()
       );
       const json = res.data.results;
-      console.log("só com mesmo generos", json);
+
+      return json;
+    } catch {
+      return this.onError;
+    }
+  }
+
+  async searchNat(nat) {
+    try {
+      const res = await axios.get(
+        `${this.BASE_URL}/?results=12&nat=${nat}`,
+        this.axiosRequest()
+      );
+      const json = res.data.results;
+
       return json;
     } catch {
       return this.onError;
