@@ -18,7 +18,12 @@ const ToogleSelector = ({ checked, handleChange, label }: IToogleProps) => {
     <Container>
       <ToogleLabel>{label}</ToogleLabel>
       <CheckBoxWrapper>
-        <CheckBox type="checkbox" checked={checked} onChange={handleChange} />
+        <CheckBox
+          type="checkbox"
+          id="checkbox"
+          checked={checked}
+          onChange={handleChange}
+        />
         <CheckBoxLabel htmlFor="checkbox" />
       </CheckBoxWrapper>
     </Container>

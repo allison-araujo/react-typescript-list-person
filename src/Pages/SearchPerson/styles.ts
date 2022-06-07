@@ -89,6 +89,10 @@ export const Button = styled.button`
   color: #fff;
   background-color: #1e90ff;
   transition: opacity 0.3s;
+
+  @media (max-width: 1024px) {
+    width: 40%;
+  }
 `;
 
 export const Direction = styled.div`
