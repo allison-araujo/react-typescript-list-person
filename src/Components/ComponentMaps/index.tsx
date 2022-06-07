@@ -1,44 +1,35 @@
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import React from "react";
-import { Container } from "./styles";
 
-interface ICoordenatsProps {
+const containerStyle = {
+  width: "100%",
+  height: "400px",
+};
+
+interface IMapsProps {
+  latitude: number;
+  longitude: number;
   zoom: number;
 }
-const ComponentMaps = ({ zoom }: ICoordenatsProps) => {
-  const isLoaded = useJsApiLoader({
+
+const ComponentMaps = ({ latitude, longitude, zoom }: IMapsProps) => {
+  const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: "AIzaSyATYIvLAogpKJafhfsH5UO_wZHtyVnb3jE",
   });
 
-  const containerStyle = {
-    width: "100%",
-    height: "300px",
+  console.log(latitude);
+  console.log(longitude);
+
+  const center = {
+    lat: Number(latitude),
+    lng: Number(longitude),
   };
 
-  const positon = {
-    lat: 33.8074,
-    lng: 157.0167,
-  };
-
-  return (
-    <Container>
-      {isLoaded ? (
-        <GoogleMap
-          mapContainerStyle={containerStyle}
-          center={positon}
-          zoom={zoom}
-        >
-          {/* Child components, such as markers, info windows, etc. */}
-          <></>
-        </GoogleMap>
-      ) : (
-        <>
-          <h1>Sem coordenadas</h1>
-        </>
-      )}
-    </Container>
+  return isLoaded ? (
+    <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={zoom} />
+  ) : (
+    <></>
   );
 };
-
 export default ComponentMaps;
