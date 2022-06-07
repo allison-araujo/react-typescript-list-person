@@ -7,6 +7,15 @@ export const Container = styled.div`
   grid-template-columns: repeat(6, 1fr);
   justify-content: center;
   grid-gap: 20%;
+
+  @media (max-width: 1024px) {
+    grid-gap: 10%;
+  }
+
+  @media (max-width: 320px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const ImageBoxRow = styled.img`
