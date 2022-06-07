@@ -40,9 +40,6 @@ interface IDataProps {
     value: string | number;
   };
 }
-interface IGenreProps {
-  gender: string;
-}
 const SearchPerson = () => {
   const [searchPerson, setSearchPerson] = useState("");
   const [filterPerson, setFilterPerson] = useState([] as any);
@@ -84,8 +81,7 @@ const SearchPerson = () => {
     if (select === "gender") {
       setLoading(true);
       setOptionsSelected(genderValues);
-      console.log("meu genero", selectedFilter);
-      user.searchGenre("female").then(res => {
+      user.searchGenre(selectedFilter).then(res => {
         const filterGenre = res.map((item: IDataProps) => ({
           id: item.id.value,
           medium: item.picture.medium,
@@ -95,12 +91,10 @@ const SearchPerson = () => {
           location: item.location.country,
           gender: item.gender,
         }));
-        console.log("so femino", filterGenre);
+
         setFilterPerson(filterGenre);
         setLoading(false);
       });
-
-      // console.log("response", response);
     } else if (select === "nat") {
       setOptionsSelected(state);
     } else if (select === "age") {
