@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import * as React from "react";
 import ToogleSelector from "./index";
 
-test("checkboxA handleChangeA is called when clicked", () => {
+test("checkboxA handleChange is called when clicked", () => {
   const handleChange = jest.fn();
   render(
     <ToogleSelector
@@ -21,7 +21,7 @@ test("checkboxA handleChangeA is called when clicked", () => {
   expect(handleChange).toHaveBeenCalledTimes(1);
 });
 
-test("checkbox is checked when true value provided", () => {
+test("checkbox is checked when true", () => {
   const handleChangeA = jest.fn();
   render(
     <ToogleSelector
