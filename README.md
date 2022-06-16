@@ -1,15 +1,24 @@
-# react-list-person
+## O objetico é buscar e listar pessoas em uma API e permite que o usuários refinem sua busca através de filtros.
 
-# O objetico é buscar e lista pessoas em uma API e permite que o usuários refinem sua busca através de filtros
+## API
 
-### Listar ao menos 12 pessoas na tela
+A aplicação irá requisitar os dados na api [random user](https://randomuser.me/).
 
-### Habilitar a visualização em lista
+- Listar ao menos 12 pessoas na tela
 
-### Aplicar os filtros de nome, genero, idade, nacionalidade
+- Habilitar a visualização em lista
 
-### Redirecionar o usuário para a página de detalhes ao clicar no avatar de uma pessoa
+- Aplicar os filtros de nome, genero, idade, nacionalidade
 
-### Exibir um mapa com as coordenadas do usuário selecionado
+- Redirecionar o usuário para a página de detalhes ao clicar no avatar de uma pessoa
 
-### Exibir a cidade é o país do usuário selecionado
+- Exibir um mapa com as coordenadas do usuário selecionado
+
+- Exibir a cidade é o país do usuário selecionado
+
+## Tecnologias utilizadas
+
+- styled-components para estilizar a aplicação.
+- axios para requisição na api.
+- react-router para redirecionar o usuário.
+- Renderizar a localização usando o Google Maps.
