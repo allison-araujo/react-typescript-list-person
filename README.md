@@ -4,7 +4,7 @@
 
 A aplicação irá requisitar os dados na api [random user](https://randomuser.me/).
 
-- Listar ao menos 12 pessoas na tela
+- Listar pessoas na tela
 
 - Habilitar a visualização em lista
 
@@ -22,3 +22,11 @@ A aplicação irá requisitar os dados na api [random user](https://randomuser.m
 - axios para requisição na api.
 - react-router para redirecionar o usuário.
 - Renderizar a localização usando o Google Maps.
+
+# Layout
+
+![011](https://user-images.githubusercontent.com/39178001/174154807-6452aba0-ef23-451b-a04d-28f006b396ae.png)
+
+![022](https://user-images.githubusercontent.com/39178001/174154845-1a768dbc-298b-4e0b-9772-ab6a2e53463d.png)
+
+![033](https://user-images.githubusercontent.com/39178001/174154871-66bb3662-36b2-4ad3-98d9-d6342a2bd9e8.png)
