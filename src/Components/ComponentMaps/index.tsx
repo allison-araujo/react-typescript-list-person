@@ -18,9 +18,6 @@ const ComponentMaps = ({ latitude, longitude, zoom }: IMapsProps) => {
     googleMapsApiKey: "AIzaSyATYIvLAogpKJafhfsH5UO_wZHtyVnb3jE",
   });
 
-  console.log(latitude);
-  console.log(longitude);
-
   const center = {
     lat: Number(latitude),
     lng: Number(longitude),
