@@ -30,3 +30,5 @@ A aplicação irá requisitar os dados na api [random user](https://randomuser.m
 ![022](https://user-images.githubusercontent.com/39178001/174154845-1a768dbc-298b-4e0b-9772-ab6a2e53463d.png)
 
 ![033](https://user-images.githubusercontent.com/39178001/174154871-66bb3662-36b2-4ad3-98d9-d6342a2bd9e8.png)
+
+![044](https://user-images.githubusercontent.com/39178001/174156790-dbbc7e2c-d333-4a62-a662-ed425cdf7520.png)
