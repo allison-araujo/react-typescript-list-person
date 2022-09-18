@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Person from "../../Api/api";
 import Button from "../../Components/Button";
@@ -7,27 +7,8 @@ import Content from "../../Components/Content";
 import Details from "../../Components/Details";
 import EmptyPage from "../../Components/EmptyPage";
 import Loading from "../../Components/Loading";
+import { IProfileProsp } from "../../ts";
 import { ButtonLink } from "./styles";
-
-interface IProfileProsp {
-  name: {
-    first: string;
-  };
-  picture: {
-    medium: string;
-  };
-  location: {
-    city: string;
-    state: string;
-    coordinates: {
-      latitude: number;
-      longitude: number;
-    };
-  };
-  id: {
-    value: string | number;
-  };
-}
 
 const ProfilePerson = () => {
   const [person, setPerson] = useState([] as any);

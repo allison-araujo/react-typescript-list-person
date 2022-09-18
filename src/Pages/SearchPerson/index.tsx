@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Person from "../../Api/api";
 import CheckboxButton from "../../Components/CheckboxButton";
@@ -9,6 +9,7 @@ import ListPerson from "../../Components/ListPerson";
 import Loading from "../../Components/Loading";
 import Select from "../../Components/SelectInput";
 import Toogle from "../../Components/Toggle";
+import { IDataProps } from "../../ts/types";
 import { ageValues, genderValues, options, state } from "../../utils/options";
 import {
   Button,
@@ -20,26 +21,6 @@ import {
   Space,
 } from "./styles";
 
-interface IDataProps {
-  gender: string;
-  name: {
-    first: string;
-    last: string;
-  };
-  picture: {
-    medium: string;
-  };
-  location: {
-    country: string;
-  };
-  dob: {
-    age: number;
-  };
-
-  id: {
-    value: string | number;
-  };
-}
 const SearchPerson = () => {
   const [searchPerson, setSearchPerson] = useState("");
   const [filterPerson, setFilterPerson] = useState([] as any);
