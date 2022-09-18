@@ -1,20 +1,9 @@
-import React from "react";
+import { IItemsType } from "../../ts";
 import { Container, ImageBox, Table, Tbody, Td, Th, Thead, Tr } from "./styles";
 
 type Prop = {
   person: [];
 };
-
-interface IItemsProps {
-  id?: string | number;
-  medium?: string;
-  name?: string;
-  first?: string;
-  last?: string;
-  age?: string;
-  location?: string;
-  gender?: string;
-}
 
 const ListPerson = ({ person }: Prop) => {
   return (
@@ -31,7 +20,7 @@ const ListPerson = ({ person }: Prop) => {
             </Tr>
           </Thead>
 
-          {person.map((item: IItemsProps) => (
+          {person.map((item: IItemsType) => (
             <Tbody>
               <Tr>
                 <Td>

@@ -1,17 +1,7 @@
-import React from "react";
+import { IProfileProsp } from "../../ts";
 import { Container, Grid, ImageBoxRow, Name } from "./styles";
 
-interface IItemsProps {
-  medium: string;
-  first?: string;
-  id: string | number;
-}
-
-type IProps = {
-  person: [];
-};
-
-const LifoPerson = ({ person }: IProps) => {
+const LifoPerson = ({ person }: IProfileProsp) => {
   return (
     <Container>
       {person.map((item: IItemsProps) => (
