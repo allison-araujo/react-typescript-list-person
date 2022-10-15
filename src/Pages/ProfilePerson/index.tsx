@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import Person from "../../Api/api";
 import Button from "../../Components/Button";
 import ComponentMaps from "../../Components/ComponentMaps";
 import Content from "../../Components/Content";
 import Details from "../../Components/Details";
 import EmptyPage from "../../Components/EmptyPage";
 import Loading from "../../Components/Loading";
+import Person from "../../services/api";
 import { IProfileProsp } from "../../ts";
 import { ButtonLink } from "./styles";
 
