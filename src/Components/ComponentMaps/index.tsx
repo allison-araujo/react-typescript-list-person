@@ -1,5 +1,4 @@
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
-import React from "react";
 
 const containerStyle = {
   width: "100%",
@@ -15,7 +14,7 @@ interface IMapsProps {
 const ComponentMaps = ({ latitude, longitude, zoom }: IMapsProps) => {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: "AIzaSyATYIvLAogpKJafhfsH5UO_wZHtyVnb3jE",
+    googleMapsApiKey: REACT_APP_APIKEY,
   });
 
   const center = {

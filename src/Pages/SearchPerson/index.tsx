@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import Person from "../../Api/api";
 import CheckboxButton from "../../Components/CheckboxButton";
 import Content from "../../Components/Content";
 import EmptyPage from "../../Components/EmptyPage";
@@ -9,8 +8,9 @@ import ListPerson from "../../Components/ListPerson";
 import Loading from "../../Components/Loading";
 import Select from "../../Components/SelectInput";
 import Toogle from "../../Components/Toggle";
+import Person from "../../services/api";
 import { IDataProps } from "../../ts/types";
-import { ageValues, genderValues, options, state } from "../../utils/options";
+import { genderValues, options } from "../../utils/options";
 import {
   Button,
   Column,
@@ -76,10 +76,6 @@ const SearchPerson = () => {
         setFilterPerson(filterGenre);
         setLoading(false);
       });
-    } else if (select === "nat") {
-      setOptionsSelected(state);
-    } else if (select === "age") {
-      setOptionsSelected(ageValues);
     }
   }, [select]);
 

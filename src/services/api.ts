@@ -1,7 +1,7 @@
 import http from "../https/http";
 
 class Person {
-  onError = (error: { response: { data: any; }; }) => {
+  onError = (error: { response: { data: any } }) => {
     const {
       response: { data },
     } = error;
@@ -11,10 +11,7 @@ class Person {
 
   async searchPersonList(keyword: string) {
     try {
-      const res = await http.get(
-        `/?results=12&name=${keyword}`,
-       
-      );
+      const res = await http.get(`/?results=12&name=${keyword}`);
       const json = res.data.results;
 
       return json;
@@ -24,7 +21,7 @@ class Person {
   }
   async profilePersonId(id: number) {
     try {
-      const res = await http.get(`/?results=1&id=${id}` );
+      const res = await http.get(`/?results=1&id=${id}`);
       const json = res.data.results;
 
       return json;
@@ -35,9 +32,7 @@ class Person {
 
   async searchGenre(genre: string) {
     try {
-      const res = await http.get(
-        `/?results=12&gender=${genre}`    
-      );
+      const res = await http.get(`/?results=12&gender=${genre}`);
       const json = res.data.results;
 
       return json;
@@ -46,12 +41,9 @@ class Person {
     }
   }
 
-  async searchNat(nat:) {
+  async searchNat(nat: string) {
     try {
-      const res = await http.get(
-        `/?results=12&nat=${nat}`,
-       
-      );
+      const res = await http.get(`/?results=12&nat=${nat}`);
       const json = res.data.results;
 
       return json;
@@ -59,8 +51,6 @@ class Person {
       return this.onError;
     }
   }
-
- 
 }
 
 export default Person;
