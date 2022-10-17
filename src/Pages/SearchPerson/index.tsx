@@ -8,7 +8,7 @@ import ListPerson from "../../Components/ListPerson";
 import Loading from "../../Components/Loading";
 import Select from "../../Components/SelectInput";
 import Toogle from "../../Components/Toggle";
-import Person from "../../services/api";
+import * as servicesPerson from "../../services/api";
 import { IDataProps } from "../../ts/types";
 import { genderValues, options } from "../../utils/options";
 import {
@@ -32,12 +32,10 @@ const SearchPerson = () => {
   const [optionSelected, setOptionsSelected] = useState([] as any);
   const [selectedFilter, setSelectedFilter] = useState();
 
-  const user = new Person();
-
   useEffect(() => {
     try {
       setLoading(true);
-      user.searchPersonList(searchPerson).then(res => {
+      servicesPerson.searchPersonList(searchPerson).then(res => {
         if (searchPerson.length) {
           const filterData = res.map((item: IDataProps) => ({
             id: item.id.value,
@@ -62,7 +60,7 @@ const SearchPerson = () => {
     if (select === "gender") {
       setLoading(true);
       setOptionsSelected(genderValues);
-      user.searchGenre(selectedFilter).then(res => {
+      servicesPerson.searchGenre(selectedFilter).then(res => {
         const filterGenre = res.map((item: IDataProps) => ({
           id: item.id.value,
           medium: item.picture.medium,
