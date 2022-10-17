@@ -1,56 +1,52 @@
 import http from "../https/http";
 
-class Person {
-  onError = (error: { response: { data: any } }) => {
-    const {
-      response: { data },
-    } = error;
-
-    return data.error.message;
-  };
-
-  async searchPersonList(keyword: string) {
-    try {
-      const res = await http.get(`/?results=12&name=${keyword}`);
-      const json = res.data.results;
-
-      return json;
-    } catch {
-      return this.onError;
-    }
-  }
-  async profilePersonId(id: number) {
-    try {
-      const res = await http.get(`/?results=1&id=${id}`);
-      const json = res.data.results;
-
-      return json;
-    } catch {
-      return this.onError;
-    }
-  }
-
-  async searchGenre(genre: string) {
-    try {
-      const res = await http.get(`/?results=12&gender=${genre}`);
-      const json = res.data.results;
-
-      return json;
-    } catch {
-      return this.onError;
-    }
-  }
-
-  async searchNat(nat: string) {
-    try {
-      const res = await http.get(`/?results=12&nat=${nat}`);
-      const json = res.data.results;
-
-      return json;
-    } catch {
-      return this.onError;
-    }
-  }
+interface TypeParams {
+  valueParamsString: string;
 }
 
-export default Person;
+interface TypeParamsNumber {
+  valueParamsNumber: number;
+}
+
+export const searchPersonList = async (keyword: TypeParams) => {
+  try {
+    const res = await http.get(`/?results=12&name=${keyword}`);
+    const json = res.data.results;
+
+    return json;
+  } catch (error) {
+    return error;
+  }
+};
+export const profilePersonId = async (id: TypeParamsNumber) => {
+  try {
+    const res = await http.get(`/?results=1&id=${id}`);
+    const json = res.data.results;
+
+    return json;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const searchGenre = async (genre: TypeParams) => {
+  try {
+    const res = await http.get(`/?results=12&gender=${genre}`);
+    const json = res.data.results;
+
+    return json;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const searchNat = async (nat: TypeParams) => {
+  try {
+    const res = await http.get(`/?results=12&nat=${nat}`);
+    const json = res.data.results;
+
+    return json;
+  } catch (error) {
+    return error;
+  }
+};
