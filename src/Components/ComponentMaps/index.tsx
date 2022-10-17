@@ -14,7 +14,7 @@ interface IMapsProps {
 const ComponentMaps = ({ latitude, longitude, zoom }: IMapsProps) => {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: REACT_APP_APIKEY,
+    googleMapsApiKey: process.env.REACT_APP_APIKEY,
   });
 
   const center = {

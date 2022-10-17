@@ -16,6 +16,7 @@
     "@types/styled-components": "^5.1.25",
     "add": "^2.0.6",
     "axios": "^0.27.2",
+    "dotenv": "^16.0.3",
     "google-map-react": "^2.1.10",
     "google-maps-react": "^2.0.6",
     "jest": "23.6.0",
