@@ -56,27 +56,6 @@ const SearchPerson = () => {
     }
   }, [searchPerson]);
 
-  // useEffect(() => {
-  //   if (select === "gender") {
-  //     setLoading(true);
-  //     setOptionsSelected(genderValues);
-  //     user.searchGenre(selectedFilter).then(res => {
-  //       const filterGenre = res.map((item: IDataProps) => ({
-  //         id: item.id.value,
-  //         medium: item.picture.medium,
-  //         first: item.name.first,
-  //         last: item.name.last,
-  //         age: item.dob.age,
-  //         location: item.location.country,
-  //         gender: item.gender,
-  //       }));
-
-  //       setFilterPerson(filterGenre);
-  //       setLoading(false);
-  //     });
-  //   }
-  // }, [select]);
-
   const handleChangeToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(e.target.checked);
   };
