@@ -1,6 +1,5 @@
 import http from "../https/http";
 
-<<<<<<< Updated upstream
 interface TypeParams {
   valueParamsString: string;
 }
@@ -10,9 +9,6 @@ interface TypeParamsNumber {
 }
 
 export const searchPersonList = async (keyword: TypeParams) => {
-=======
-export const searchPersonList = async (keyword: string) => {
->>>>>>> Stashed changes
   try {
     const res = await http.get(`/?results=12&name=${keyword}`);
     const json = res.data.results;
@@ -22,11 +18,7 @@ export const searchPersonList = async (keyword: string) => {
     return error;
   }
 };
-<<<<<<< Updated upstream
 export const profilePersonId = async (id: TypeParamsNumber) => {
-=======
-export const profilePersonId = async (id: number) => {
->>>>>>> Stashed changes
   try {
     const res = await http.get(`/?results=1&id=${id}`);
     const json = res.data.results;
