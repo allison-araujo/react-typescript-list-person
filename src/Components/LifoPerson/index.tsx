@@ -1,7 +1,7 @@
-import { IProfileProsp } from "../../ts";
+import { IItemsProps, IProps } from "../../ts";
 import { Container, Grid, ImageBoxRow, Name } from "./styles";
 
-const LifoPerson = ({ person }: IProfileProsp) => {
+const LifoPerson = ({ person }: IProps) => {
   return (
     <Container>
       {person.map((item: IItemsProps) => (

@@ -6,21 +6,20 @@ import Content from "../../Components/Content";
 import Details from "../../Components/Details";
 import EmptyPage from "../../Components/EmptyPage";
 import Loading from "../../Components/Loading";
-import Person from "../../services/api";
+import * as servicesPerson from "../../services/api";
 import { IProfileProsp } from "../../ts";
 import { ButtonLink } from "./styles";
 
 const ProfilePerson = () => {
   const [person, setPerson] = useState([] as any);
   const [loading, setLoading] = useState(false);
-  const { id: personId } = useParams();
 
-  const user = new Person();
+  const { personId }: any = useParams();
 
   useEffect(() => {
     try {
       setLoading(true);
-      user.profilePersonId(personId).then(res => {
+      servicesPerson.profilePersonId(personId).then(res => {
         if (res) {
           const filterProfile = res.map((item: IProfileProsp) => ({
             id: item.id.value,
