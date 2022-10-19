@@ -10,7 +10,7 @@ import Select from "../../Components/SelectInput";
 import Toogle from "../../Components/Toggle";
 import * as servicesPerson from "../../services/api";
 import { IDataProps } from "../../ts/types";
-import { genderValues, options } from "../../utils/options";
+import { options } from "../../utils/options";
 import {
   Button,
   Column,
