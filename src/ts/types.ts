@@ -59,3 +59,11 @@ export type IItemsType = {
   location?: string;
   gender?: string;
 };
+
+export type TypeId = {
+  id: number | string;
+};
+
+export interface ParamsId {
+  id: number;
+}

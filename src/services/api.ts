@@ -1,56 +1,44 @@
 import http from "../https/http";
 
-class Person {
-  onError = (error: { response: { data: any } }) => {
-    const {
-      response: { data },
-    } = error;
+export const searchPersonList = async (keyword: string) => {
+  try {
+    const res = await http.get(`/?results=12&name=${keyword}`);
+    const json = res.data.results;
 
-    return data.error.message;
-  };
-
-  async searchPersonList(keyword: string) {
-    try {
-      const res = await http.get(`/?results=12&name=${keyword}`);
-      const json = res.data.results;
-
-      return json;
-    } catch {
-      return this.onError;
-    }
+    return json;
+  } catch (error) {
+    return error;
   }
-  async profilePersonId(id: number) {
-    try {
-      const res = await http.get(`/?results=1&id=${id}`);
-      const json = res.data.results;
+};
+export const profilePersonId = async (id: number) => {
+  try {
+    const res = await http.get(`/?results=1&id=${id}`);
+    const json = res.data.results;
 
-      return json;
-    } catch {
-      return this.onError;
-    }
+    return json;
+  } catch (error) {
+    return error;
   }
+};
 
-  async searchGenre(genre: string) {
-    try {
-      const res = await http.get(`/?results=12&gender=${genre}`);
-      const json = res.data.results;
+export const searchGenre = async (genre: string) => {
+  try {
+    const res = await http.get(`/?results=12&gender=${genre}`);
+    const json = res.data.results;
 
-      return json;
-    } catch {
-      return this.onError;
-    }
+    return json;
+  } catch (error) {
+    return error;
   }
+};
 
-  async searchNat(nat: string) {
-    try {
-      const res = await http.get(`/?results=12&nat=${nat}`);
-      const json = res.data.results;
+export const searchNat = async (nat: string) => {
+  try {
+    const res = await http.get(`/?results=12&nat=${nat}`);
+    const json = res.data.results;
 
-      return json;
-    } catch {
-      return this.onError;
-    }
+    return json;
+  } catch (error) {
+    return error;
   }
-}
-
-export default Person;
+};
