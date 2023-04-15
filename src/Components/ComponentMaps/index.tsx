@@ -1,31 +1,31 @@
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
+import { Map } from "../../Pages/ProfilePerson/styles";
 
-const containerStyle = {
-  width: "100%",
-  height: "400px",
-};
-
-interface IMapsProps {
-  latitude: number;
-  longitude: number;
-  zoom: number;
-}
-
-const ComponentMaps = ({ latitude, longitude, zoom }: IMapsProps) => {
+const ComponentMaps = ({ position }: any) => {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: process.env.REACT_APP_APIKEY,
+    googleMapsApiKey: "AIzaSyATYIvLAogpKJafhfsH5UO_wZHtyVnb3jE",
   });
 
-  const center = {
-    lat: Number(latitude),
-    lng: Number(longitude),
-  };
-
-  return isLoaded ? (
-    <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={zoom} />
-  ) : (
-    <></>
+  return (
+    <Map>
+      {isLoaded ? (
+        <GoogleMap
+          mapContainerStyle={{ width: "100%", height: "100%" }}
+          center={position}
+          zoom={2}
+        >
+          <Marker position={position} />
+        </GoogleMap>
+      ) : (
+        <div>
+          <h1>
+            Maps cant connection link a site. Please send to e-mail to squad.
+          </h1>
+        </div>
+      )}
+    </Map>
   );
 };
+
 export default ComponentMaps;
