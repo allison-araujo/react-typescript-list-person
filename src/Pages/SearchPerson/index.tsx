@@ -22,7 +22,7 @@ import {
 } from "./styles";
 
 const SearchPerson = () => {
-  const [searchPerson, setSearchPerson] = useState("");
+  const [searchPerson, setSearchPerson] = useState("" as any);
   const [filterPerson, setFilterPerson] = useState([] as any);
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
@@ -30,52 +30,34 @@ const SearchPerson = () => {
   const [checkedbox, setCheckedbox] = useState(true);
   const [select, setSelect] = useState("");
   const [optionSelected, setOptionsSelected] = useState([] as any);
-  const [selectedFilter, setSelectedFilter] = useState();
+  const [selectedFilter, setSelectedFilter] = useState("");
 
   useEffect(() => {
     try {
       setLoading(true);
-      servicesPerson.searchPersonList(searchPerson).then(res => {
-        if (searchPerson.length) {
-          const filterData = res.map((item: IDataProps) => ({
-            id: item.id.value,
-            medium: item.picture.medium,
-            first: item.name.first,
-            last: item.name.last,
-            age: item.dob.age,
-            location: item.location.country,
-            gender: item.gender,
-          }));
-          setFilterPerson(filterData);
-          setLoading(false);
-        }
-      });
+
+      if (select === "") {
+        servicesPerson.searchPersonList(searchPerson).then(res => {
+          if (searchPerson.length) {
+            const filterData = res.map((item: IDataProps) => ({
+              id: item.id.value,
+              medium: item.picture.medium,
+              first: item.name.first,
+              last: item.name.last,
+              age: item.dob.age,
+              location: item.location.country,
+              gender: item.gender,
+            }));
+            setFilterPerson(filterData);
+            setLoading(false);
+          }
+        });
+      }
     } catch (error) {
       alert("Nao foi possivel buscar Pessoa");
       setLoading(false);
     }
   }, [searchPerson]);
-
-  useEffect(() => {
-    if (select === "gender") {
-      setLoading(true);
-      setOptionsSelected(genderValues);
-      servicesPerson.searchGenre(selectedFilter).then(res => {
-        const filterGenre = res.map((item: IDataProps) => ({
-          id: item.id.value,
-          medium: item.picture.medium,
-          first: item.name.first,
-          last: item.name.last,
-          age: item.dob.age,
-          location: item.location.country,
-          gender: item.gender,
-        }));
-
-        setFilterPerson(filterGenre);
-        setLoading(false);
-      });
-    }
-  }, [select]);
 
   const handleChangeToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(e.target.checked);
@@ -85,12 +67,7 @@ const SearchPerson = () => {
     setCheckedbox(e.target.checked);
   };
 
-  const handleSelectChange = (e: any) => {
-    setSelect(e.target.value);
-  };
-  const handleSelectedValuesFilter = (e: any) => {
-    setSelectedFilter(e.target.value);
-  };
+  console.log("filtrar por =>>>>>", select);
 
   return (
     <Content>
@@ -113,18 +90,21 @@ const SearchPerson = () => {
         <Row>
           <Space>
             <Column>
-              <Select options={options} onChange={handleSelectChange} />
+              <Select
+                options={options}
+                onChange={e => setSelect(e.target.value)}
+              />
             </Column>
             <Column>
               <Select
                 options={optionSelected}
-                onChange={handleSelectedValuesFilter}
+                onChange={e => setSelectedFilter(e.target.value)}
               />
             </Column>
             <Column>
               <CheckboxButton
                 checked={checkedbox}
-                label="Adults"
+                label="Adultos"
                 handleChange={handleChangeCheckBox}
               />
             </Column>
