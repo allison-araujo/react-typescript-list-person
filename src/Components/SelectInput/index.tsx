@@ -1,29 +1,12 @@
-import React from "react";
-import { Container, InputSelect } from "./styles";
+import { ReactNode, SelectHTMLAttributes } from "react";
+import { InputSelect } from "./styles";
 
-interface ISelectInputProps {
-  options: {
-    value?: string | number;
-    label?: string | number;
-  }[];
-  onChange(event: React.ChangeEvent<HTMLSelectElement>): void | undefined;
-  defaultValue?: string | number;
-}
+export type ISelectInputProps = SelectHTMLAttributes<HTMLSelectElement> & {
+  children: ReactNode;
+};
 
-const SelectInput = ({
-  options,
-  onChange,
-  defaultValue,
-}: ISelectInputProps) => (
-  <Container>
-    <InputSelect onChange={onChange} defaultValue={defaultValue}>
-      {options.map(option => (
-        <option key={option.value} value={option.value}>
-          {option.label}
-        </option>
-      ))}
-    </InputSelect>
-  </Container>
+const SelectInput = ({ children, ...props }: ISelectInputProps) => (
+  <InputSelect {...props}>{children}</InputSelect>
 );
 
 export default SelectInput;

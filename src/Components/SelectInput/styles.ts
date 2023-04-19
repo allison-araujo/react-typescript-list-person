@@ -1,13 +1,20 @@
 import styled from "styled-components";
 
-export const Container = styled.div``;
-
 export const InputSelect = styled.select`
-  width: 100%;
-  display: flex;
-  border-radius: 8px;
   padding: 10px;
-  height: 50px;
-  font-size: 10px;
-  border: none;
+  background-color: #ebebeb;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #000;
+  placeholdercolor: #dfdfdf;
+  width: 130px;
+
+  outline: none;
+  border: 1px solid #ebebeb;
+
+  &:hover {
+    opacity: 80%;
+    cursor: pointer;
+    outline: 0;
+  }
 `;
