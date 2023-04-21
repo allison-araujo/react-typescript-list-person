@@ -1,69 +1,24 @@
 export type IDataProps = {
   gender: string;
+  login: {
+    uuid: string;
+  };
   name: {
     first: string;
     last: string;
   };
-  picture: {
-    medium: string;
-  };
   location: {
     country: string;
-  };
-  dob: {
-    age: number;
-  };
-
-  id: {
-    value: string | number;
-  };
-};
-
-export type IProfileProsp = {
-  name: {
-    first: string;
-  };
-  picture: {
-    medium: string;
-  };
-  location: {
     city: string;
-    state: string;
     coordinates: {
-      latitude: number;
-      longitude: number;
+      latitude: string;
+      longitude: string;
     };
   };
-  id: {
-    value: string | number;
+  dob: {
+    age: string;
+  };
+  picture: {
+    large: string;
   };
 };
-
-export type IProps = {
-  person: [];
-};
-
-export type IItemsProps = {
-  medium: string;
-  first?: string;
-  id: string | number;
-};
-
-export type IItemsType = {
-  id?: string | number;
-  medium?: string;
-  name?: string;
-  first?: string;
-  last?: string;
-  age?: string;
-  location?: string;
-  gender?: string;
-};
-
-export type TypeId = {
-  id: number | string;
-};
-
-export interface ParamsId {
-  id: number;
-}

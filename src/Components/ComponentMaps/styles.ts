@@ -9,3 +9,7 @@ export const ContentMaps = styled.div`
   width: 100%;
   height: 50vh;
 `;
+
+export const Map = styled.div`
+  height: 50vh;
+`;
