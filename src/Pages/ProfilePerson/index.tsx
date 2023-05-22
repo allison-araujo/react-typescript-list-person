@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import Button from "../../Components/Button";
+import Button from "../../Components/ButtonStyle";
 import ComponentMaps from "../../Components/ComponentMaps";
 import Content from "../../Components/Content";
-import Details from "../../Components/Details";
 import EmptyPage from "../../Components/EmptyPage";
 import Loading from "../../Components/Loading";
 import * as servicesPerson from "../../services/api";
@@ -15,6 +14,11 @@ const ProfilePerson = () => {
   const [loading, setLoading] = useState(false);
 
   const { personId }: any = useParams();
+
+  const position = {
+    lat: parseFloat(personId.lat),
+    lng: parseFloat(personId.lng),
+  };
 
   useEffect(() => {
     try {
@@ -47,22 +51,12 @@ const ProfilePerson = () => {
       <Loading spinning={loading}>
         {person.length !== 0 ? (
           <>
-            <ComponentMaps
-              latitude={person[0].latitude}
-              longitude={person[0].longitude}
-              zoom={15}
-            />
+            <ComponentMaps position={position} />
             <ButtonLink>
               <Link to={`/`}>
                 <Button>Voltar</Button>
               </Link>
             </ButtonLink>
-            <Details
-              image={person[0].photo}
-              name={person[0].name}
-              city={person[0].city}
-              state={person[0].state}
-            />
           </>
         ) : (
           <EmptyPage text="User Not Id exists!" />
